@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2018 CNRS, NYU, MPI Tübingen
+// Copyright (c) 2018 CNRS
 //
 // This file is part of tsid
 // tsid is free software: you can redistribute it
@@ -15,28 +15,14 @@
 // <http://www.gnu.org/licenses/>.
 //
 
-#ifndef __tsid_python_expose_contact_hpp__
-#define __tsid_python_expose_contact_hpp__
-
-#include "tsid/bindings/python/contacts/contact-6d.hpp"
-#include "tsid/bindings/python/contacts/contact-point.hpp"
-#include "tsid/bindings/python/contacts/contact-two-frame-positions.hpp"
-#include "tsid/bindings/python/contacts/measured-6d-wrench.hpp"
+#include "tsid/bindings/python/tasks/task-actuation-equality.hpp"
+#include "tsid/bindings/python/tasks/expose-tasks.hpp"
 
 namespace tsid {
 namespace python {
-void exposeContact6d();
-void exposeContactPoint();
-void exposeContactTwoFramePositions();
-void exposeMeasured6dWrench();
-
-inline void exposeContact() {
-  exposeContact6d();
-  exposeContactPoint();
-  exposeContactTwoFramePositions();
-  exposeMeasured6dWrench();
+void exposeTaskActuationEquality() {
+  TaskActuationEqualityPythonVisitor<
+      tsid::tasks::TaskActuationEquality>::expose("TaskActuationEquality");
 }
-
 }  // namespace python
 }  // namespace tsid
-#endif  // ifndef __tsid_python_expose_contact_hpp__

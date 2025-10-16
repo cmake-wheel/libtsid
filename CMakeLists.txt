@@ -44,6 +44,8 @@ add_definitions(-Wno-deprecated-declarations)
 # Ignore them for now.
 add_definitions(-Wno-sign-conversion)
 
+add_definitions(-Werror=suggest-override)
+
 # Project configuration
 if(NOT INSTALL_PYTHON_INTERFACE_ONLY)
   set(PROJECT_USE_CMAKE_EXPORT TRUE)
@@ -168,6 +170,8 @@ set(${PROJECT_NAME}_CONTACTS_HEADERS
     include/tsid/contacts/contact-6d.hpp
     include/tsid/contacts/contact-point.hpp
     include/tsid/contacts/measured-force-base.hpp
+    include/tsid/contacts/measured-3d-force.hpp
+    include/tsid/contacts/measured-6d-wrench.hpp
     include/tsid/contacts/measured-3Dforce.hpp
     include/tsid/contacts/measured-6Dwrench.hpp
     include/tsid/contacts/contact-two-frame-positions.hpp)
@@ -272,8 +276,8 @@ set(${PROJECT_NAME}_CONTACTS_SOURCES
     src/contacts/contact-6d.cpp
     src/contacts/contact-point.cpp
     src/contacts/measured-force-base.cpp
-    src/contacts/measured-3Dforce.cpp
-    src/contacts/measured-6Dwrench.cpp
+    src/contacts/measured-3d-force.cpp
+    src/contacts/measured-6d-wrench.cpp
     src/contacts/contact-two-frame-positions.cpp)
 
 set(${PROJECT_NAME}_TRAJECTORIES_SOURCES

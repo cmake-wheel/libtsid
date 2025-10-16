@@ -19,6 +19,7 @@ set(${PYWRAP}_SOURCES
     contacts/contact-6d.cpp
     contacts/contact-point.cpp
     contacts/contact-two-frame-positions.cpp
+    contacts/measured-6d-wrench.cpp
     formulations/formulation.cpp
     math/utils.cpp
     module.cpp
@@ -27,6 +28,7 @@ set(${PYWRAP}_SOURCES
     solvers/HQPOutput.cpp
     solvers/solver-HQP-eiquadprog.cpp
     tasks/task-actuation-bounds.cpp
+    tasks/task-actuation-equality.cpp
     tasks/task-am-equality.cpp
     tasks/task-com-equality.cpp
     tasks/task-contact-force-equality.cpp
@@ -49,6 +51,7 @@ set(${PYWRAP}_HEADERS
     ../../include/tsid/bindings/python/contacts/contact-point.hpp
     ../../include/tsid/bindings/python/contacts/contact-two-frame-positions.hpp
     ../../include/tsid/bindings/python/contacts/contact-two-frames.hpp
+    ../../include/tsid/bindings/python/contacts/measured-6d-wrench.hpp
     ../../include/tsid/bindings/python/contacts/expose-contact.hpp
     ../../include/tsid/bindings/python/formulations/expose-formulations.hpp
     ../../include/tsid/bindings/python/formulations/formulation.hpp
@@ -117,5 +120,5 @@ install(
 set(PYTHON_FILES __init__.py)
 
 foreach(python ${PYTHON_FILES})
-  python_install(${PROJECT_NAME} ${python} ${${PYWRAP}_INSTALL_DIR})
+  python_install_on_site(${PROJECT_NAME} ${python})
 endforeach(python)
