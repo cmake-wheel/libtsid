@@ -316,6 +316,13 @@ if(NOT BUILD_STANDALONE_PYTHON_INTERFACE)
   target_link_libraries(${PROJECT_NAME} PUBLIC pinocchio::pinocchio
                                                eiquadprog::eiquadprog)
 
+  if(APPLE)
+    set_target_properties(${PROJECT_NAME} PROPERTIES INSTALL_RPATH
+                                                     "@loader_path")
+  elseif(UNIX)
+    set_target_properties(${PROJECT_NAME} PROPERTIES INSTALL_RPATH "\$ORIGIN")
+  endif()
+
   if(BUILD_WITH_PROXQP)
     target_compile_definitions(${PROJECT_NAME} PUBLIC -DTSID_WITH_PROXSUITE)
     target_link_libraries(${PROJECT_NAME} PUBLIC proxsuite::proxsuite)
