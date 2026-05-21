@@ -1,7 +1,7 @@
 [build-system]
 build-backend = "cmeel"
 requires = [
-  "cmeel-boost ~= 1.89.0",
+  "cmeel-boost ~= 1.90.0",
   "cmeel[build]",
   "eiquadprog[build]",
   "libpinocchio[build]"
@@ -9,7 +9,7 @@ requires = [
 
 [project]
 dependencies = [
-  "cmeel-boost ~= 1.89.0",
+  "cmeel-boost ~= 1.90.0",
   "eiquadprog",
   "libpinocchio"
 ]
