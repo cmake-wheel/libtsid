@@ -28,6 +28,7 @@ configure-args = [
   "-DBUILD_PYTHON_INTERFACE=OFF",
   "-DSUFFIX_SO_VERSION=OFF"
 ]
+has-sitelib = false
 
 [tool.ruff]
 extend-exclude = ["cmake"]
